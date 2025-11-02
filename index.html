@@ -1,0 +1,2501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  
+
+  <!--====== Required meta tags ======-->
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!--====== Title ======-->
+  <title>Business | Bootstrap 5 Business Template</title>
+
+  <!--====== Favicon Icon ======-->
+  <link rel="shortcut icon" href="../assets/images/favicon.svg" type="image/svg" />
+
+  <!--====== Bootstrap css ======-->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+
+  <!--====== Line Icons css ======-->
+  <link rel="stylesheet" href="assets/css/lineicons.css" />
+
+  <!--====== Tiny Slider css ======-->
+  <link rel="stylesheet" href="assets/css/tiny-slider.css" />
+
+  <!--====== gLightBox css ======-->
+  <link rel="stylesheet" href="assets/css/glightbox.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ====== NAVBAR PUTIH KONSTAN + TEKS HIJAU SAAT SCROLL ====== -->
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar" style="
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  padding: 1.5rem 0;
+  z-index: 1050;
+  transform: translateY(0);
+  opacity: 1;
+">
+  <div class="container">
+
+  <!-- STRIP HIJAU BAWAH -->
+  <div class="navbar-bottom-strip" style="
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #6382ff,#5778ff, #ff1010, #ff0000);
+    z-index: 2;
+  "></div>
+
+    <!-- Logo BESAR -->
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <div class="logo-container position-relative">
+        <img src="img/0991.png" 
+             alt="LPK-MBS Logo" 
+             class="navbar-logo img-"
+             style="
+               width: 100px; height: 100px; 
+               border-radius: 20px; 
+               object-fit: cover;
+               transition: all 0.4s ease;
+               z-index: 2;
+             ">
+        <div class="logo-glow"></div>
+      </div>
+      <div class="ms-3">
+        <h4 class="fw-bold mb-0 logo-text" style="font-size: 1.5rem; letter-spacing: 1px; color: #1f2937; transition: color 0.4s ease;">
+          LPK-MBS
+        </h4>
+        <small class="fw-medium sub-text" style="font-size: 0.75rem; letter-spacing: 2px; color: #10b981; transition: color 0.4s ease;">
+          PELATIHAN FUMIGASI & KARANTINA
+        </small>
+      </div>
+    </a>
+
+    <!-- Toggler Mobile -->
+    <button class="navbar-toggler border-0 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <div class="toggler-icon">
+        <span></span><span></span><span></span>
+      </div>
+    </button>
+
+    <!-- Menu + WA -->
+    <ul class="navbar-nav mx-auto">
+  <li class="nav-item mx-2">
+    <a class="nav-link fw-semibold position-relative menu-link" href="#home" data-scroll>Beranda</a>
+  </li>
+  <li class="nav-item mx-2">
+    <a class="nav-link fw-semibold position-relative menu-link" href="#program" data-scroll>Program</a>
+  </li>
+  <li class="nav-item mx-2">
+    <a class="nav-link fw-semibold position-relative menu-link" href="#dokumentasi" data-scroll>Dokumentasi</a>
+  </li>
+  <li class="nav-item mx-2">
+    <a class="nav-link fw-semibold position-relative menu-link" href="#keunggulan" data-scroll>Keunggulan</a>
+  </li>
+  <li class="nav-item mx-2">
+    <a class="nav-link fw-semibold position-relative menu-link" href="#contact" data-scroll>Kontak</a>
+  </li>
+</ul>
+
+      <!-- Tombol WhatsApp -->
+      <a href="https://wa.me/628129284684?text=Halo%20LPK-MBS%2C%20saya%20ingin%20daftar%20pelatihan" 
+         target="_blank"
+         class="btn btn-success rounded-pill px-4 py-2 d-flex align-items-center shadow-lg wa-btn">
+        <i class="fab fa-whatsapp me-2 fs-5"></i>
+        <span class="fw-bold">Chat WA</span>
+      </a>
+    </div>
+
+  </div>
+</nav>
+<!-- ====== END NAVBAR ====== -->
+
+<!-- ====== JAVASCRIPT: HIDE ON SCROLL + TEKS HIJAU SAAT SCROLL ====== -->
+<script>
+  let lastScrollTop = 0;
+  const navbar = document.getElementById('mainNavbar');
+  const delta = 5;
+  const navbarHeight = navbar.offsetHeight;
+
+  window.addEventListener('scroll', function() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (Math.abs(lastScrollTop - scrollTop) <= delta) return;
+
+    // HIDE ON SCROLL DOWN
+    if (scrollTop > lastScrollTop && scrollTop > navbarHeight) {
+      navbar.style.transform = 'translateY(-120%)';
+      navbar.style.opacity = '0';
+    } else {
+      // SHOW ON SCROLL UP
+      navbar.style.transform = 'translateY(0)';
+      navbar.style.opacity = '1';
+
+      // UBAH WARNA TEKS MENJADI HIJAU SAAT SCROLL > 80px
+      const logoText = document.querySelector('.logo-text');
+      const subText = document.querySelector('.sub-text');
+      const menuLinks = document.querySelectorAll('.menu-link');
+      const togglerLines = document.querySelectorAll('.toggler-icon span');
+
+      if (scrollTop > 80) {
+        // MODE SCROLL: TEKS HIJAU
+        logoText.style.color = '#000000';
+        subText.style.color = '#059669';
+        menuLinks.forEach(link => {
+          
+        });
+        togglerLines.forEach(line => line.style.background = '#10b981');
+      } else {
+        // MODE ATAS: TEKS HITAM
+        logoText.style.color = '#000000';
+        subText.style.color = '#000000';
+        menuLinks.forEach(link => {
+          link.style.color = '#374151';
+          link.addEventListener('mouseenter', () => link.style.color = '#000000');
+          link.addEventListener('mouseleave', () => link.style.color = '#374151');
+        });
+        togglerLines.forEach(line => line.style.background = '#374151');
+      }
+    }
+
+    lastScrollTop = scrollTop;
+  });
+
+  
+</script>
+
+<!-- ====== CSS: PUTIH KONSTAN + EFEK HIJAU ====== -->
+<style>
+  /* Smooth Hide */
+  
+
+  
+
+  /* Menu Link */
+  .menu-link {
+    font-size: 1.05rem;
+    padding: 0.5rem 0 !important;
+    color: #374151;
+    transition: color 0.4s ease;
+  }
+  .nav-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: #000000;
+    border-radius: 2px;
+    transition: all 0.4s ease;
+    transform: translateX(-50%);
+  }
+  .nav-indicator::before {
+    content: '';
+    position: absolute;
+    top: -8px; left: 50%;
+    width: 6px; height: 6px;
+    background: #000000;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: all 0.4s ease;
+  }
+  .menu-link:hover .nav-indicator,
+  .menu-link[aria-current="page"] .nav-indicator {
+    width: 100%;
+  }
+  .menu-link:hover .nav-indicator::before {
+    opacity: 1;
+    top: -10px;
+  }
+
+  /* Toggler */
+  .toggler-icon span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: #374151;
+    margin: 6px 0;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  .navbar-toggler[aria-expanded="true"] .toggler-icon span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+  .navbar-toggler[aria-expanded="true"] .toggler-icon span:nth-child(2) {
+    opacity: 0;
+  }
+  .navbar-toggler[aria-expanded="true"] .toggler-icon span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+  }
+
+  /* WA Button */
+  .wa-btn {
+    background: linear-gradient(45deg, #10b981, #34d399);
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+  .wa-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 0; height: 0;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.6s ease;
+    z-index: -1;
+  }
+  .wa-btn:hover::before {
+    width: 300px; height: 300px;
+  }
+  .wa-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4) !important;
+  }
+
+  /* Mobile */
+  @media (max-width: 992px) {
+    .navbar-collapse {
+      background: #ffffff;
+      margin-top: 1.5rem;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .menu-link {
+      color: #374151 !important;
+      padding: 0.75rem 0 !important;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .menu-link:hover {
+      color: #10b981 !important;
+      background: rgba(16, 185, 129, 0.05);
+      border-radius: 8px;
+    }
+    .wa-btn {
+      margin: 1.5rem auto 0;
+      width: fit-content;
+      display: block !important;
+    }
+  }
+</style>
+
+  <!-- ====== HERO SECTION PREMIUM LPK-MBS ====== -->
+<section id="home" class="hero-section position-relative overflow-hidden" 
+         style="
+           min-height: 90vh;
+           background: linear-gradient(rgba(15,23,42,0.70), rgba(15,23,42,0.80)), 
+                       url('img/0993.png') center/cover no-repeat;
+           display: flex; align-items: center;
+         ">
+  
+  <!-- Background Overlay Pattern -->
+  <div class="hero-bg-pattern" style="
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(16,185,129,0.12) 0%, transparent 50%);
+    z-index: 1;
+  "></div>
+
+  <div class="container position-relative z-3">
+    <div class="row align-items-center justify-content-center justify-content-lg-start">
+      
+      <!-- Konten Utama -->
+      <div class="col-lg-7 col-md-10 text-center text-lg-start">
+        <div class="hero-content">
+
+          <!-- Badge Sertifikasi -->
+          <div class="badge-certification d-inline-flex align-items-center bg-success text-white rounded-pill px-3 py-2 mb-3 shadow-sm"
+               style="font-size: 0.85rem; font-weight: 600;">
+            <i class="fas fa-certificate me-2"></i>
+            BNSP & Badan Karantina Indonesia
+          </div>
+
+          <!-- Judul Utama -->
+          <h1 class="display-4 fw-bold text-white mb-4 lh-base" 
+              style="text-shadow: 0 2px 10px rgba(0,0,0,0.3);">
+            LPK Mitra Biosekuriti Solusi
+          </h1>
+
+          <!-- Deskripsi -->
+          <p class="lead text-light mb-5" style="max-width: 600px;">
+            Lembaga pelatihan kerja resmi yang mencetak <strong>tenaga ahli bersertifikat</strong> 
+            di bidang <strong>fumigasi ISPM 15, karantina tumbuhan, K3 industri, dan logistik pelabuhan</strong>.
+          </p>
+
+          <!-- Tombol CTA -->
+          <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
+
+            <!-- Tombol WhatsApp -->
+            <a href="https://wa.me/628129284684?text=Halo%20LPK-MBS%2C%20saya%20ingin%20konsultasi%20pelatihan" 
+               target="_blank"
+               class="btn btn-success btn-lg rounded-pill px-5 py-3 d-flex align-items-center justify-content-center shadow-lg wa-cta"
+               style="
+                 font-weight: 600; 
+                 background: linear-gradient(45deg, #10b981, #34d399);
+                 border: none;
+                 transition: all 0.4s ease;
+               ">
+              <i class="fab fa-whatsapp me-2 fs-5"></i>
+              Konsultasi Gratis
+            </a>
+
+            <!-- Tombol Video Popup -->
+            <a href="#" 
+               class="btn btn-outline-light btn-lg rounded-pill px-4 py-3 d-flex align-items-center youtube-popup"
+               data-video="https://www.youtube.com/embed/r44RKWyfcFw"
+               style="
+                 font-weight: 600;
+                 border: 2px solid #ffffff;
+                 transition: all 0.4s ease;
+               ">
+              <span class="icon-circle bg-white text-success me-3 d-flex align-items-center justify-content-center rounded-circle shadow-sm"
+                    style="width: 48px; height: 48px;">
+                <i class="fas fa-play fs-5"></i>
+              </span>
+              <span>Tonton Profil Kami</span>
+            </a>
+          </div>
+
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="scroll-down text-white position-absolute bottom-0 start-50 translate-middle-x mb-4 d-none d-md-block" 
+       style="z-index: 2; animation: bounce 2s infinite;">
+    <i class="fas fa-chevron-down fs-3"></i>
+  </div>
+</section>
+<!-- ====== END HERO ====== -->
+
+<!-- ====== YOUTUBE POPUP MODAL ====== -->
+<div class="video-modal" id="youtubeModal">
+  <div class="modal-content bg-dark rounded-3 overflow-hidden shadow-lg">
+    <span class="close-modal text-white position-absolute top-0 end-0 p-3 fs-3" 
+          style="z-index: 1; cursor: pointer;" 
+          onclick="closeVideo()">&times;</span>
+    <div class="ratio ratio-16x9">
+      <iframe id="youtubeIframe" 
+              src="" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+<style>
+  /* Hero Pattern */
+  .hero-bg-pattern { pointer-events: none; }
+
+  /* Tombol WhatsApp Hover */
+  .wa-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(16,185,129,0.4) !important;
+  }
+
+  /* Video Button Hover */
+  .youtube-popup:hover {
+    background: rgba(255,255,255,0.1) !important;
+    border-color: #10b981 !important;
+    color: #10b981 !important;
+  }
+  .youtube-popup:hover .icon-circle {
+    background: #10b981 !important;
+    color: white !important;
+  }
+
+  /* Floating Animation */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+
+  /* Scroll Down Bounce */
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* Video Modal */
+  .video-modal {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.95); z-index: 1050;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; visibility: hidden; transition: all 0.4s ease;
+  }
+  .video-modal.active { opacity: 1; visibility: visible; }
+  .modal-content { max-width: 900px; width: 90%; }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero-content h1 { font-size: 2.5rem; }
+    .stats-row { gap: 1.5rem; font-size: 0.9rem; }
+    .stats-row h3 { font-size: 1.5rem; }
+  }
+</style>
+<script>
+  // Buka Video Popup
+  document.querySelectorAll('.youtube-popup').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      const videoId = this.getAttribute('data-video');
+      document.getElementById('youtubeIframe').src = videoId + '?autoplay=1';
+      document.getElementById('youtubeModal').classList.add('active');
+    });
+  });
+
+  // Tutup Video
+  function closeVideo() {
+    document.getElementById('youtubeModal').classList.remove('active');
+    document.getElementById('youtubeIframe').src = '';
+  }
+
+  // Tutup saat klik luar
+  document.getElementById('youtubeModal').addEventListener('click', function(e) {
+    if (e.target === this) closeVideo();
+  });
+</script>
+
+  <!--====== SEJARAH KAMI PART START ======-->
+<section id="about-us" class="about-us-section" style="padding: 80px 0; background-color: #f7f7f7;">
+  
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10 col-12 text-center">
+                <!-- Section Title -->
+                <h2 class="section-title" style="font-size: 36px; font-weight: 700; color: #333; margin-bottom: 30px;">Sejarah Kami</h2>
+                <p class="section-subtitle" style="font-size: 18px; color: #6c757d; margin-bottom: 50px;">Mengenal LPK Mitra Biosekuriti Solusi (LPK-MBS) dan Komitmennya dalam Pengembangan SDM Indonesia</p>
+            </div>
+        </div>
+        
+        <!-- About Content -->
+        <div class="row align-items-center">
+            <div class="col-lg-5 col-md-12 text-center">
+                <img src="img/ioo2.png" alt="About Us Image"  />
+            </div>
+            
+            <div class="col-lg-6 col-md-12">
+                <div class="about-content">
+                    <h3 class="about-title" style="font-size: 28px; color: #333; font-weight: 600;">LPK Mitra Biosekuriti Solusi (LPK-MBS)</h3>
+                    <p class="about-text" style="font-size: 16px; color: #555; line-height: 1.8; margin-bottom: 20px;">
+                        LPK Mitra Biosekuriti Solusi (LPK-MBS) adalah lembaga pelatihan pertama di Indonesia yang menyediakan program pelatihan khusus untuk sumber daya manusia di bidang jasa fumigasi dan pengendalian hama. Kami berkomitmen untuk memastikan standar kualitas dalam penyimpanan dan pengangkutan komoditas pertanian dan kehutanan di Indonesia.
+                    </p>
+                    <p class="about-text" style="font-size: 16px; color: #555; line-height: 1.8;">
+                        Kami mengkhususkan diri dalam layanan pengendalian hama di industri pangan, pakan, kemasan kayu, pergudangan, serta pemenuhan standar ekspor dan impor. Fokus utama kami adalah mengembangkan keterampilan yang dibutuhkan untuk mempertahankan standar karantina tumbuhan di Indonesia.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Highlight Box -->
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-md-12">
+                <div class="highlight-box" style="background-color: #f0f8ff; padding: 30px; border-radius: 8px; margin-top: 40px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+                    <h4 class="highlight-title" style="font-size: 20px; font-weight: 600; color: #333;">
+                        <i class="fas fa-certificate" style="color: #4CAF50; margin-right: 10px;"></i>
+                        Penyedia Pelatihan Resmi yang Diakui
+                    </h4>
+                    <p class="highlight-text" style="font-size: 16px; color: #555; line-height: 1.8;">
+                        LPK-MBS telah memperoleh sertifikasi dan pengakuan resmi dari Kementerian Hukum dan Hak Asasi Manusia Republik Indonesia (AHU-0060281.AH.01.02.TAHUN 2025). Program pelatihan kami mengikuti standar kompetensi nasional Indonesia (SKKNI) untuk layanan Karantina Tumbuhan.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vision & Mission Section -->
+                    <div class="vision-mission">
+                        <h3>Visi Kami</h3>
+                        <p class="vision-text">"Menjadi LPK Swasta yang Profesional, Akuntabel, dan Berintegritas serta Memberikan Kontribusi Nyata bagi Pengembangan Sumber Daya Manusia di Indonesia."</p>
+                        
+                        <h3>Misi Kami</h3>
+                        <ul class="mission-list">
+                            <li><i class="lni lni-checkmark-circle"></i> Mempersiapkan tenaga kerja yang kompeten dan profesional dengan integritas yang kuat dalam melaksanakan tugas dan tanggung jawab mereka.</li>
+                            <li><i class="lni lni-checkmark-circle"></i> Mendukung program pemerintah untuk mengurangi pengangguran dan mempersiapkan generasi muda Indonesia agar dapat bersaing di tingkat global.</li>
+                            <li><i class="lni lni-checkmark-circle"></i> Menciptakan sumber daya manusia dengan semangat, tanggung jawab, disiplin, dan etos kerja yang tinggi, sehingga mampu menghadapi dunia kerja atau menciptakan peluang kerja baru.</li>
+                            <li><i class="lni lni-checkmark-circle"></i> Berkolaborasi dengan instansi terkait untuk mengembangkan program pelatihan yang efektif dan efisien yang sesuai dengan kebutuhan industri.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Add some custom CSS to make it visually interesting -->
+<style>
+    /* Section Style */
+    #about-us {
+        background-color: #f7f7f7;
+        padding: 80px 0;
+    }
+
+    .section-title {
+        font-size: 36px;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 30px;
+    }
+
+    .section-subtitle {
+        font-size: 18px;
+        color: #6c757d;
+        margin-bottom: 50px;
+    }
+
+    /* About Content */
+    .about-content {
+        padding: 0 15px;
+    }
+
+    .about-title {
+        font-size: 28px;
+        color: #333;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    .about-text {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.8;
+        margin-bottom: 20px;
+    }
+
+    /* Highlight Box */
+    .highlight-box {
+        background-color: #f0f8ff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin-top: 40px;
+    }
+
+    .highlight-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 15px;
+    }
+
+    .highlight-text {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.8;
+    }
+
+    /* Vision & Mission Section */
+    .mission-title {
+        font-size: 26px;
+        color: #333;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    .vision-text {
+        font-size: 18px;
+        color: #4CAF50;
+        font-style: italic;
+        line-height: 1.8;
+        margin-bottom: 30px;
+    }
+
+    .mission-list {
+        list-style-type: none;
+        padding: 0;
+        margin-left: 20px;
+        font-size: 18px;
+        color: #555;
+    }
+
+    .mission-list li {
+        margin-bottom: 15px;
+        line-height: 1.6;
+    }
+
+    .mission-list li i {
+        color: #4CAF50;
+        margin-right: 10px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .about-content {
+            padding: 0 20px;
+        }
+
+        .about-title {
+            font-size: 24px;
+        }
+
+        .about-text {
+            font-size: 16px;
+        }
+
+        .mission-list li {
+            font-size: 16px;
+        }
+    }
+</style>
+
+
+
+
+
+<!--====== KEUNGGULAN LEMBAGA PELATIHAN KERJA MBS START ======-->
+<section id="keunggulan" class="advantages-area" style="background-color: #f8f9fa; padding: 80px 0;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-12">
+                <div class="section-title text-center">
+                    <h2 class="main-title fw-bold" style="font-size: 36px; color: #343a40;">Kenapa Memilih LPK-MBS?</h2>
+                    <p class="subtitle" style="font-size: 20px; color: #6c757d;">Keunggulan yang Membuat Kami Terpercaya dalam Dunia Pelatihan Karantina Tumbuhan</p>
+                </div>
+
+                <div class="row">
+                    <!-- Keunggulan 1 -->
+                    <div class="col-lg-4 col-md-6 text-center" style="padding-top: 30px; padding-bottom: 30px;">
+                        <div class="advantage-item">
+                            <div class="icon-container">
+                                <i class="fas fa-users" style="font-size: 40px; color: #ffffff;"></i>
+                            </div>
+                            <h4 style="font-size: 22px; font-weight: 600; margin: 20px 0; color: #333;">Berpengalaman</h4>
+                            <p style="font-size: 16px; color: #555; line-height: 1.5; text-align: center;">Team Pengajar dan Konsultan memiliki sertifikasi dan pengalaman yang sangat mumpuni di bidang Karantina Tumbuhan, serta memiliki standar kompetensi nasional dan internasional.</p>
+                        </div>
+                    </div>
+
+                    <!-- Keunggulan 2 -->
+                    <div class="col-lg-4 col-md-6 text-center" style="padding-top: 30px; padding-bottom: 30px;">
+                        <div class="advantage-item">
+                            <div class="icon-container">
+                                <i class="fas fa-cogs" style="font-size: 40px; color: #ffffff;"></i>
+                            </div>
+                            <h4 style="font-size: 22px; font-weight: 600; margin: 20px 0; color: #333;">Memiliki Standar</h4>
+                            <p style="font-size: 16px; color: #555; line-height: 1.5; text-align: center;">Kami berpedoman pada standar kompetensi nasional Indonesia (SKKNI) serta mengikuti regulasi yang ditetapkan oleh Badan Karantina Indonesia untuk memastikan kualitas yang terbaik.</p>
+                        </div>
+                    </div>
+
+                    <!-- Keunggulan 3 -->
+                    <div class="col-lg-4 col-md-6 text-center" style="padding-top: 30px; padding-bottom: 30px;">
+                        <div class="advantage-item">
+                            <div class="icon-container">
+                                <i class="fas fa-sync-alt" style="font-size: 40px; color: #ffffff;"></i>
+                            </div>
+                            <h4 style="font-size: 22px; font-weight: 600; margin: 20px 0; color: #333;">Mengikuti Perkembangan</h4>
+                            <p style="font-size: 16px; color: #555; line-height: 1.5; text-align: center;">Alat dan metode fumigasi yang digunakan selalu diperbarui secara berkala untuk mengikuti perkembangan teknologi terbaru, guna memastikan efektivitas dan efisiensi dalam mengatasi masalah yang dihadapi.</p>
+                        </div>
+                    </div>
+
+                    <!-- Keunggulan 4 -->
+                    <div class="col-lg-4 col-md-6 text-center" style="padding-top: 30px; padding-bottom: 30px;">
+                        <div class="advantage-item">
+                            <div class="icon-container">
+                                <i class="fas fa-dollar-sign" style="font-size: 40px; color: #ffffff;"></i>
+                            </div>
+                            <h4 style="font-size: 22px; font-weight: 600; margin: 20px 0; color: #333;">Efisien</h4>
+                            <p style="font-size: 16px; color: #555; line-height: 1.5; text-align: center;">Kami menawarkan harga yang kompetitif dengan kualitas pelatihan yang tak tertandingi, memastikan bahwa setiap peserta mendapat nilai terbaik untuk investasi mereka.</p>
+                        </div>
+                    </div>
+
+                    <!-- Keunggulan 5 -->
+                    <div class="col-lg-4 col-md-6 text-center" style="padding-top: 30px; padding-bottom: 30px;">
+                        <div class="advantage-item">
+                            <div class="icon-container">
+                                <i class="fas fa-check-circle" style="font-size: 40px; color: #ffffff;"></i>
+                            </div>
+                            <h4 style="font-size: 22px; font-weight: 600; margin: 20px 0; color: #333;">Efektif</h4>
+                            <p style="font-size: 16px; color: #555; line-height: 1.5; text-align: center;">Metode pelatihan kami dirancang untuk memastikan bahwa peserta tidak hanya memperoleh pengetahuan, tetapi juga keterampilan yang dapat diterapkan langsung di lapangan.</p>
+                        </div>
+                    </div>
+
+                    <!-- Keunggulan 6 -->
+                    <div class="col-lg-4 col-md-6 text-center" style="padding-top: 30px; padding-bottom: 30px;">
+                        <div class="advantage-item">
+                            <div class="icon-container">
+                                <i class="fas fa-briefcase" style="font-size: 40px; color: #ffffff;"></i>
+                            </div>
+                            <h4 style="font-size: 22px; font-weight: 600; margin: 20px 0; color: #333;">Komprehensif</h4>
+                            <p style="font-size: 16px; color: #555; line-height: 1.5; text-align: center;">Kami menawarkan pelatihan yang mencakup berbagai aspek pengendalian hama dan fumigasi, memberikan peserta pemahaman yang komprehensif tentang proses dan teknologi terbaru.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--====== KEUNGGULAN LEMBAGA PELATIHAN KERJA MBS END ======-->
+
+<!-- Add some custom CSS to make it visually interesting -->
+<style>
+    .advantages-list .advantage-item {
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 40px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        margin-bottom: 40px;
+        height: 100%;
+    }
+
+    .advantages-list .advantage-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .icon-container {
+        background-color: #4CAF50;
+        padding: 20px;
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        display: inline-block;
+        margin-bottom: 20px;
+        color: white;
+        font-size: 30px;
+    }
+
+    .advantage-item h4 {
+        font-size: 22px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .advantage-item p {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.5; /* Ensuring 1.5 line-height */
+        text-align: center;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .advantage-item {
+            padding: 30px;
+        }
+    }
+</style>
+
+
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <section id="program" class="advantages-area" style="background-color: #f8f9fa; padding: 80px 0;"></section>
+    <title>Program Pelatihan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        td {
+            background-color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .red-text {
+            color: rgb(0, 0, 0);
+            
+        }
+
+    </style>
+</head>
+<body>
+<section id="karir" class="advantages-area" style="background-color: #f8f9fa; padding: 80px 0;"></section>
+<div class="container">
+    <h2>PROGRAM PELATIHAN</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Nama Pelatihan</th>
+                <th>Jenjang Kualifikasi Jabatan</th>
+                <th>Sasaran</th>
+                <th>Penerima Manfaat</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td class="red-text">Fumigasi Metil Bromida</td>
+                <td class="red-text">1. Asisten Fumigator Metil Bromida<br>2. Fumigator Metil Bromida<br>3. Manajer Teknis Metil Bromida</td>
+                <td class="red-text">Karyawan Industri jasa fumigasi, jasa pengendalian hama pada industri pangan, pakan, industri kemasan kayu, jasa pergudangan</td>
+                <td class="red-text">Industri jasa fumigasi, jasa pengendalian hama pada industri pangan, pakan, industri kemasan kayu, jasa pergudangan</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td class="red-text">Fumigasi Fosfin</td>
+                <td class="red-text">1. Asisten Fumigator Fosfin<br>2. Fumigator Fosfin<br>3. Manajer Teknis Fosfin</td>
+                <td class="red-text">Karyawan Industri jasa fumigasi, jasa pengendalian hama pada industri pangan, pakan, industri kemasan kayu, jasa pergudangan, pengelola kearsipan kantor pemerintahan atau swasta.</td>
+                <td class="red-text">Industri jasa fumigasi, jasa pengendalian hama pada industri pangan, pakan, industri kemasan kayu, jasa pergudangan</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td class="red-text">Perlakuan udara panas</td>
+                <td class="red-text">1. Asisten operator Perlakuan udara panas kemasan kayu<br>2. Operator Perlakuan udara panas kemasan kayu<br>3. Manajer Teknis Perlakuan Udara Panas</td>
+                <td class="red-text">Karyawan Industri jasa kemasan kayu</td>
+                <td class="red-text">Industri jasa kemasan kayu</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
+
+<!-- ====== FASILITAS PELATIHAN SECTION ====== -->
+<section id="fasilitas" class="fasilitas-section py-5" style="background: #f8fafc;">
+  <div class="container">
+
+    <!-- Judul Section -->
+    <div class="text-center mb-5">
+      <h2 class="display-5 fw-bold text-dark mb-3">
+        Fasilitas Pelatihan
+      </h2>
+      <p class="lead text-muted" style="max-width: 700px; margin: 0 auto;">
+        Kami menyediakan sarana lengkap dan instruktur bersertifikat untuk mendukung proses pembelajaran Anda.
+      </p>
+      <div class="title-underline mx-auto mt-4" 
+           style="width: 80px; height: 4px; background: #10b981; border-radius: 2px;"></div>
+    </div>
+
+    <!-- Grid Fasilitas -->
+    <div class="row g-4">
+
+      <!-- 1. Ruang Kelas -->
+      <div class="col-lg-4 col-md-6">
+        <div class="facility-card h-100 p-4 rounded-3 shadow-sm bg-white border-start border-4 border-success"
+             style="transition: all 0.4s ease; border-left-color: #10b981 !important;">
+          <div class="d-flex align-items-center mb-3">
+            <div class="icon-circle bg-success text-white d-flex align-items-center justify-content-center rounded-circle me-3"
+                 style="width: 50px; height: 50px; font-size: 1.3rem;">
+              <i class="fas fa-chalkboard-teacher"></i>
+            </div>
+            <h5 class="mb-0 fw-bold text-dark">Ruang Kelas</h5>
+          </div>
+          <p class="text-muted small">
+            Dilengkapi AC, proyektor, papan tulis digital, dan kursi ergonomis untuk kenyamanan belajar.
+          </p>
+        </div>
+      </div>
+
+      <!-- 2. Tempat Praktek & Workshop -->
+      <div class="col-lg-4 col-md-6">
+        <div class="facility-card h-100 p-4 rounded-3 shadow-sm bg-white border-start border-4 border-success"
+             style="transition: all 0.4s ease;">
+          <div class="d-flex align-items-center mb-3">
+            <div class="icon-circle bg-success text-white d-flex align-items-center justify-content-center rounded-circle me-3"
+                 style="width: 50px; height: 50px; font-size: 1.3rem;">
+              <i class="fas fa-tools"></i>
+            </div>
+            <h5 class="mb-0 fw-bold text-dark">Tempat Praktek & Workshop</h5>
+          </div>
+          <p class="text-muted small">
+            Area luas dengan peralatan fumigasi, alat karantina, dan simulasi pelabuhan sesuai standar industri.
+          </p>
+        </div>
+      </div>
+
+      <!-- 3. Aula -->
+      <div class="col-lg-4 col-md-6">
+        <div class="facility-card h-100 p-4 rounded-3 shadow-sm bg-white border-start border-4 border-success"
+             style="transition: all 0.4s ease;">
+          <div class="d-flex align-items-center mb-3">
+            <div class="icon-circle bg-success text-white d-flex align-items-center justify-content-center rounded-circle me-3"
+                 style="width: 50px; height: 50px; font-size: 1.3rem;">
+              <i class="fas fa-users"></i>
+            </div>
+            <h5 class="mb-0 fw-bold text-dark">Aula</h5>
+          </div>
+          <p class="text-muted small">
+            Kapasitas 100+ orang, sound system, lighting profesional untuk seminar dan sertifikasi.
+          </p>
+        </div>
+      </div>
+
+      <!-- 4. Ruang Instruktur -->
+      <div class="col-lg-4 col-md-6">
+        <div class="facility-card h-100 p-4 rounded-3 shadow-sm bg-white border-start border-4 border-success"
+             style="transition: all 0.4s ease;">
+          <div class="d-flex align-items-center mb-3">
+            <div class="icon-circle bg-success text-white d-flex align-items-center justify-content-center rounded-circle me-3"
+                 style="width: 50px; height: 50px; font-size: 1.3rem;">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <h5 class="mb-0 fw-bold text-dark">Ruang Instruktur</h5>
+          </div>
+          <p class="text-muted small">
+            Ruang khusus untuk persiapan materi, diskusi, dan evaluasi oleh tim pengajar.
+          </p>
+        </div>
+      </div>
+
+      <!-- 5. Ruang Makan -->
+      <div class="col-lg-4 col-md-6">
+        <div class="facility-card h-100 p-4 rounded-3 shadow-sm bg-white border-start border-4 border-success"
+             style="transition: all 0.4s ease;">
+          <div class="d-flex align-items-center mb-3">
+            <div class="icon-circle bg-success text-white d-flex align-items-center justify-content-center rounded-circle me-3"
+                 style="width: 50px; height: 50px; font-size: 1.3rem;">
+              <i class="fas fa-utensils"></i>
+            </div>
+            <h5 class="mb-0 fw-bold text-dark">Ruang Makan</h5>
+          </div>
+          <p class="text-muted small">
+            Kantin bersih, menu bergizi, kapasitas 50 orang, mendukung kesehatan peserta.
+          </p>
+        </div>
+      </div>
+
+      <!-- 6. Lobi -->
+      <div class="col-lg-4 col-md-6">
+        <div class="facility-card h-100 p-4 rounded-3 shadow-sm bg-white border-start border-4 border-success"
+             style="transition: all 0.4s ease;">
+          <div class="d-flex align-items-center mb-3">
+            <div class="icon-circle bg-success text-white d-flex align-items-center justify-content-center rounded-circle me-3"
+                 style="width: 50px; height: 50px; font-size: 1.3rem;">
+              <i class="fas fa-door-open"></i>
+            </div>
+            <h5 class="mb-0 fw-bold text-dark">Lobi</h5>
+          </div>
+          <p class="text-muted small">
+            Area resepsionis, informasi, dan waiting room dengan Wi-Fi dan display profil.
+          </p>
+        </div>
+      </div>
+
+      <!-- 7. Instruktur Bersertifikat -->
+      <div class="col-lg-4 col-md-6">
+        <div class="facility-card h-100 p-4 rounded-3 shadow-sm bg-white border-start border-4 border-success"
+             style="transition: all 0.4s ease;">
+          <div class="d-flex align-items-center mb-3">
+            <div class="icon-circle bg-success text-white d-flex align-items-center justify-content-center rounded-circle me-3"
+                 style="width: 50px; height: 50px; font-size: 1.3rem;">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h5 class="mb-0 fw-bold text-dark">Instruktur Bersertifikat</h5>
+          </div>
+          <p class="text-muted small">
+            <strong>BNSP & Badan Karantina</strong> — Berpengalaman 10+ tahun di fumigasi, karantina, dan logistik.
+          </p>
+        </div>
+      </div>
+
+      <!-- 8. Sertifikat Kompetensi -->
+      <div class="col-lg-4 col-md-6">
+        <div class="facility-card h-100 p-4 rounded-3 shadow-sm bg-white border-start border-4 border-success"
+             style="transition: all 0.4s ease;">
+          <div class="d-flex align-items-center mb-3">
+            <div class="icon-circle bg-success text-white d-flex align-items-center justify-content-center rounded-circle me-3"
+                 style="width: 50px; height: 50px; font-size: 1.3rem;">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <h5 class="mb-0 fw-bold text-dark">Sertifikat Kompetensi</h5>
+          </div>
+          <p class="text-muted small">
+            Diterbitkan resmi oleh LPK-MBS untuk semua peserta yang menyelesaikan pelatihan.
+          </p>
+        </div>
+      </div>
+
+      <!-- 9. Sertifikat BNSP -->
+      <div class="col-lg-4 col-md-6 mx-auto">
+        <div class="facility-card h-100 p-4 rounded-3 shadow-sm bg-white border-start border-4 border-success"
+             style="transition: all 0.4s ease;">
+          <div class="d-flex align-items-center mb-3">
+            <div class="icon-circle bg-success text-white d-flex align-items-center justify-content-center rounded-circle me-3"
+                 style="width: 50px; height: 50px; font-size: 1.3rem;">
+              <i class="fas fa-award"></i>
+            </div>
+            <h5 class="mb-0 fw-bold text-dark">Sertifikat BNSP</h5>
+          </div>
+          <p class="text-muted small">
+            <strong>Resmi & Diakui Nasional</strong> — Bagi peserta yang <strong>lulus uji kompetensi</strong>.
+          </p>
+        </div>
+      </div>
+
+    </div>
+    <!-- End Row -->
+
+  </div>
+</section>
+<!-- ====== END FASILITAS SECTION ====== -->
+
+<style>
+  /* Card Hover Effect */
+  .facility-card {
+    transition: all 0.4s ease;
+    transform: translateY(0);
+  }
+  .facility-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(16, 185, 129, 0.15) !important;
+    border-left-color: #059669 !important;
+  }
+  .facility-card:hover .icon-circle {
+    background: #059669 !important;
+    transform: scale(1.1);
+  }
+
+  /* Icon Circle */
+  .icon-circle {
+    transition: all 0.4s ease;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .facility-card {
+      text-align: center;
+    }
+    .d-flex.align-items-center {
+      justify-content: center !important;
+    }
+  }
+</style>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Struktur Organisasi - LPK MBS</title>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #4CAF50;
+            --primary-dark: #388E3C;
+            --secondary: #2E7D32;
+            --text: #222;
+            --bg: #f5f9f5;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --line: #aaa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #e8f5e8, #f5f9f5);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 40px 0;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .org-header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .org-header h1 {
+            font-size: 38px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .org-header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .org-header p {
+            font-size: 17px;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Org Chart */
+        .org-chart {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .org-level {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            position: relative;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* Connector Lines */
+        .connector {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            background: var(--line);
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .connector.horizontal {
+            width: calc(100% - 100px);
+            height: 2px;
+            top: 50%;
+            left: 50px;
+            transform: translateY(-50%);
+            background: linear-gradient(to right, transparent, var(--line) 20%, var(--line) 80%, transparent);
+        }
+
+        /* Org Node */
+        .org-node {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(76, 175, 80, 0.2);
+            border-radius: 16px;
+            padding: 24px 20px;
+            width: 220px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .org-node.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .org-node:hover {
+            transform: translateY(-12px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(76, 175, 80, 0.2);
+            border-color: var(--primary);
+        }
+
+        .org-node::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            width: 2px;
+            height: 10px;
+            background: var(--line);
+            transform: translateX(-50%);
+            z-index: -1;
+        }
+
+        .org-node i {
+            font-size: 42px;
+            color: var(--primary);
+            margin-bottom: 16px;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .org-node:hover i {
+            color: var(--primary-dark);
+            transform: scale(1.1);
+        }
+
+        .org-node .title {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .org-node .name {
+            font-size: 15px;
+            color: #555;
+            font-style: italic;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .org-level {
+                flex-direction: column;
+                align-items: center;
+            }
+            .org-node {
+                width: 280px;
+            }
+            .connector.horizontal {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .org-header h1 {
+                font-size: 30px;
+            }
+            .org-node {
+                width: 90%;
+                max-width: 300px;
+            }
+            .org-node i {
+                font-size: 36px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Header -->
+    <div class="org-header">
+      <section id="struktur" class="advantages-area" style="background-color: #f8f9fa; padding: 80px 0;"></section>
+        <h1>Struktur Organisasi</h1>
+    </div>
+
+    <!-- Org Chart -->
+    <div class="org-chart">
+
+        <!-- Level 1: Direktur Utama -->
+        <div class="org-level">
+            <div class="org-node visible" style="animation-delay: 0.2s;">
+                <i class="fas fa-crown"></i>
+                <div class="title">Direktur Utama</div>
+                <div class="name"></div>
+            </div>
+        </div>
+        <div class="connector" style="height: 50px;"></div>
+
+        <!-- Level 2: Direktur -->
+        <div class="org-level">
+            <div class="org-node visible" style="animation-delay: 0.4s;">
+                <i class="fas fa-user-tie"></i>
+                <div class="title">Direktur</div>
+                <div class="name"></div>
+            </div>
+        </div>
+        <div class="connector" style="height: 50px;"></div>
+
+        <!-- Level 3: Manajer Utama -->
+        <div class="org-level">
+            <div class="org-node visible" style="animation-delay: 0.6s;">
+                <i class="fas fa-briefcase"></i>
+                <div class="title">Manajer Utama LPK</div>
+                <div class="name"></div>
+            </div>
+        </div>
+        <div class="connector" style="height: 60px;"></div>
+
+        <!-- Level 4: Manajer Keuangan & Teknis -->
+        <div class="org-level">
+            <div class="org-node visible" style="animation-delay: 0.8s;">
+                <i class="fas fa-calculator"></i>
+                <div class="title">Manajer Keuangan & Administrasi</div>
+                <div class="name">.</div>
+            </div>
+            <div class="org-node visible" style="animation-delay: 0.9s;">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <div class="title">Manajer Teknis Pelatihan</div>
+                <div class="name"></div>
+            </div>
+        </div>
+        <div class="connector horizontal"></div>
+        <div class="connector" style="height: 60px; display: none;"></div>
+
+        <!-- Level 5: Manajer Mutu & SDM -->
+        <div class="org-level">
+            <div class="org-node visible" style="animation-delay: 1s;">
+                <i class="fas fa-tasks"></i>
+                <div class="title">Manajer Mutu</div>
+                <div class="name"></div>
+            </div>
+            <div class="org-node visible" style="animation-delay: 1.1s;">
+                <i class="fas fa-users"></i>
+                <div class="title">Manajer Sumber Daya</div>
+                <div class="name"></div>
+            </div>
+        </div>
+        <div class="connector" style="height: 60px;"></div>
+
+        <!-- Level 6: Tim Operasional -->
+        <div class="org-level">
+            <div class="org-node visible" style="animation-delay: 1.2s;">
+                <i class="fas fa-user-check"></i>
+                <div class="title">Tim Penilai</div>
+                <div class="name"></div>
+            </div>
+            <div class="org-node visible" style="animation-delay: 1.3s;">
+                <i class="fas fa-graduation-cap"></i>
+                <div class="title">Instruktur & Pelatih</div>
+                <div class="name"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Legalitas Section -->
+<section class="legalitas">
+  <section id="sertifikasi" class="advantages-area" style="background-color: #f8f9fa; padding: 80px 0;"></section>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-20 col-md-10">
+                <div class="legalitas-header">
+                    <h3 class="section-title">Legalitas Perusahaan</h3>
+                </div>
+                <div class="legalitas-content">
+                    <div class="legalitas-item">
+                        <span class="legalitas-label">Notaris:</span>
+                        <p>Yudhi Jayadilaga S.H., M.Kn</p>
+                    </div>
+                    <div class="legalitas-item">
+                        <span class="legalitas-label">Domisili:</span>
+                        <p>Kota Bogor</p>
+                    </div>
+                    <div class="legalitas-item">
+                        <span class="legalitas-label">Nomor:</span>
+                        <p>01</p>
+                    </div>
+                    <div class="legalitas-item">
+                        <span class="legalitas-label">Tanggal:</span>
+                        <p>03 September 2025</p>
+                    </div>
+                    <div class="legalitas-item">
+                        <span class="legalitas-label">Kementerian Hukum dan Hak Asasi Manusia Republik Indonesia, No:</span>
+                        <p>AHU-0060281.AH.01.02.TAHUN 2025, 8 September 2025</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Add custom CSS to make it visually interesting -->
+<style>
+    /* General Container Styling */
+    .container {
+        max-width: 1100px; /* Increase container width for more space */
+        margin: 0 auto;
+        padding: 40px 20px;
+    }
+
+    /* Section Title */
+    .section-title {
+        text-align: center;
+        font-size: 36px;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 40px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    /* Legalitas Section Styling */
+    .legalitas-section {
+        background-color: #f9f9f9;
+        padding: 60px 20px;
+    }
+
+    .legalitas-header {
+        margin-bottom: 30px;
+    }
+
+    .legalitas-content {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        margin: 0 auto;
+    }
+
+    /* Individual Item Styling */
+    .legalitas-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #e2e2e2;
+        padding: 12px 0;
+        font-size: 16px;
+        color: #555;
+    }
+
+    .legalitas-item:last-child {
+        border-bottom: none;
+    }
+
+    /* Label Styling */
+    .legalitas-label {
+        font-weight: bold;
+        color: #4CAF50;
+        font-size: 16px;
+    }
+
+    /* Paragraph Styling */
+    .legalitas-item p {
+        font-size: 16px;
+        margin: 0;
+        text-align: right;
+        color: #333;
+    }
+
+    /* Hover effect on items */
+    .legalitas-item:hover {
+        background-color: #f0f8ff;
+        cursor: pointer;
+        transform: scale(1.02);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .section-title {
+            font-size: 28px;
+        }
+
+        .legalitas-item {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .legalitas-item p {
+            text-align: left;
+            margin-top: 5px;
+        }
+
+        .legalitas-label {
+            font-size: 14px;
+        }
+    }
+</style>
+
+<!-- Legalitas Section -->
+<section class="legalitas-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12 col-md-10">
+                <div class="legalitas-header text-center">
+                    <h3 class="section-title">Sertifikat Standar</h3>
+                </div>
+                <!-- Sertifikat Standar Content -->
+                <div class="legalitas-content">
+                    <div class="legalitas-item">
+                        <span class="legalitas-label">NAMA PELAKU USAHA:</span>
+                        <p>PT. MITRA BIOSEKURITI SOLUSI</p>
+                    </div>
+                    <div class="legalitas-item">
+                        <span class="legalitas-label">Nomor Induk Berusaha (NIB):</span>
+                        <p>0805250078793</p>
+                    </div>
+                    <div class="legalitas-item">
+                        <span class="legalitas-label">SERTIFIKAT STANDAR:</span>
+                        <p>08052500787930008</p>
+                    </div>
+                    <div class="legalitas-item">
+                        <span class="legalitas-label">KBLI:</span>
+                        <p>78429 - Pelatihan Kerja Swasta Lainnya</p>
+                    </div>
+                    <div class="legalitas-item">
+                        <span class="legalitas-label">NPWP:</span>
+                        <p>1000000002020145</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Add custom CSS to make it visually interesting -->
+<style>
+    /* General Container Styling */
+    .container {
+        max-width: 1100px; /* Increase container width for more space */
+        margin: 0 auto;
+        padding: 40px 20px;
+    }
+
+    /* Section Title */
+    .section-title {
+        text-align: center;
+        font-size: 32px;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-bottom: 3px solid #4CAF50;
+        padding-bottom: 10px;
+    }
+
+    /* Legalitas Section Styling */
+    .legalitas-section {
+        background-color: #f9f9f9;
+        padding: 60px 20px;
+    }
+
+    .legalitas-header {
+        margin-bottom: 30px;
+    }
+
+    .legalitas-content {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin: 0 auto;
+    }
+
+    /* Individual Item Styling */
+    .legalitas-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #e2e2e2;
+        padding: 12px 0;
+        font-size: 16px;
+        color: #555;
+    }
+
+    .legalitas-item:last-child {
+        border-bottom: none;
+    }
+
+    /* Label Styling */
+    .legalitas-label {
+        font-weight: bold;
+        color: #4CAF50;
+        font-size: 16px;
+    }
+
+    /* Paragraph Styling */
+    .legalitas-item p {
+        font-size: 16px;
+        margin: 0;
+        color: #333;
+    }
+
+    /* Hover effect on items */
+    .legalitas-item:hover {
+        background-color: #f0f8ff;
+        cursor: pointer;
+        transform: scale(1.02);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .section-title {
+            font-size: 28px;
+        }
+
+        .legalitas-item {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .legalitas-item p {
+            text-align: left;
+            margin-top: 5px;
+        }
+
+        .legalitas-label {
+            font-size: 14px;
+        }
+    }
+</style>
+
+
+
+  <!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dokumentasi Lapangan - LPK MBS</title>
+    
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #4CAF50;
+            --primary-dark: #388E3C;
+            --text: #1a1a1a;
+            --bg: #f8fcf8;
+            --card-bg: rgba(255, 255, 255, 0.92);
+            --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            --border: rgba(76, 175, 80, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            padding: 80px 0 50px;
+            position: relative;
+        }
+
+        .section-title h6 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h6::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 18px;
+        }
+
+        .section-title p {
+            font-size: 17px;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Field Documentation Grid */
+        .field-docs {
+            padding-bottom: 80px;
+        }
+
+        .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        /* Card */
+        .doc-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            opacity: 0;
+            transform: translateY(40px);
+            backdrop-filter: blur(10px);
+        }
+
+        .doc-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .doc-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(76, 175, 80, 0.2);
+            border-color: var(--primary);
+        }
+
+        .doc-image {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .doc-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .doc-card:hover .doc-image img {
+            transform: scale(1.1);
+        }
+
+        .doc-image .overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .doc-card:hover .doc-image .overlay {
+            opacity: 1;
+        }
+
+        .doc-icon {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .doc-card:hover .doc-icon {
+            transform: scale(1.2) rotate(360deg);
+        }
+
+        .doc-content {
+            padding: 25px;
+        }
+
+        .doc-content h4 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .doc-content h4 a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .doc-content h4 a:hover {
+            color: var(--primary);
+        }
+
+        .doc-content p {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .doc-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section-title {
+                padding: 60px 0 40px;
+            }
+            .section-title h2 {
+                font-size: 30px;
+            }
+            .docs-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            .doc-card {
+                max-width: 380px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- DOKUMENTASI LAPANGAN -->
+<section id="dokumentasi" class="field-docs">
+  
+    <div class="section-title">
+        <div class="container">
+            <h6>FOTO KEGIATAN</h6>
+            <h2>Pelatihan Nyata. Hasil Nyata.</h2>
+            <p>
+                Lihat bagaimana <strong> LPK Mitra Biosekuriti Solusi</strong> mentransformasi tenaga kerja melalui pelatihan langsung di lapangan — 
+                dari fumigasi pelabuhan hingga pengendalian hama modern. Setiap sesi dirancang untuk <strong>hasil nyata di industri</strong>.
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="docs-grid">
+
+            <!-- Card 1 -->
+            <div class="doc-card">
+                <div class="doc-image">
+                    <img src="img/8771.jpg" alt="Fumigasi Kontainer">
+                    <div class="overlay"></div>
+                    <div class="doc-icon">
+                        <i class="fas fa-spray-can"></i>
+                    </div>
+                </div>
+                <div class="doc-content">
+                    <h4><a href="#">Pelatihan Keterampilan Kerja di Sektor Infrastruktur</a></h4>
+                    <p>
+                        Pelatihan ini fokus pada peningkatan keterampilan teknis dalam pembangunan infrastruktur, dengan peserta yang dilatih untuk mengoperasikan peralatan industri dan memahami prosedur keselamatan kerja. Program ini bertujuan mencetak tenaga kerja terampil yang siap memenuhi kebutuhan sektor konstruksi dan manufaktur.
+                    </p>
+                    <span class="doc-badge">Gudang silo</span>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="doc-card">
+                <div class="doc-image">
+                    <img src="img/87722.jpg" alt="Pengendalian Hama Gudang">
+                    <div class="overlay"></div>
+                    <div class="doc-icon">
+                        <i class="fas fa-warehouse"></i>
+                    </div>
+                </div>
+                <div class="doc-content">
+                    <h4><a href="#">Pelatihan Keterampilan untuk Sektor Pangan dan pengendalian hama</a></h4>
+                    <p>
+                        Proses distribusi beras BULOG yang efisien mencerminkan pentingnya keterampilan teknis dalam pengelolaan logistik dan penyimpanan pangan. Pelatihan kerja di sektor ini memberikan keahlian yang dibutuhkan untuk mengelola sistem distribusi pangan yang besar dan kompleks, membuka peluang bagi tenaga kerja terampil di industri logistik dan ketahanan pangan.
+                    </p>
+                    <span class="doc-badge">Gudang Bulog</span>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="doc-card">
+                <div class="doc-image">
+                    <img src="img/poki.jpg" alt="Pelatihan Keselamatan Kerja">
+                    <div class="overlay"></div>
+                    <div class="doc-icon">
+                        <i class="fas fa-boxes"></i>
+                    </div>
+                </div>
+                <div class="doc-content">
+                    <h4><a href="#">Pelatihan Keterampilan di Sektor Logistik</a></h4>
+                    <p>
+                        Proses penyimpanan dan pengelolaan barang menggunakan rak dan forklift ini menunjukkan pentingnya keterampilan operasional dalam sektor logistik. Pelatihan di bidang ini mempersiapkan tenaga kerja untuk mengelola distribusi barang secara efisien, mengoptimalkan penggunaan ruang gudang, serta memastikan kelancaran alur barang, yang sangat dibutuhkan dalam berbagai industri, termasuk distribusi pangan dan manufaktur.
+                    </p>
+                    <span class="doc-badge">K3 & Sertifikasi</span>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="doc-card">
+                <div class="doc-image">
+                    <img src="img/9888.jpg" alt="Manufaktur & Pengemasan">
+                    <div class="overlay"></div>
+                    <div class="doc-icon">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                </div>
+                <div class="doc-content">
+                    <h4><a href="#">Pelatihan Keterampilan di Sektor Transportasi dan Logistik</a></h4>
+                    <p>
+                        Aktivitas bongkar muat kontainer di pelabuhan ini menunjukkan pentingnya keterampilan teknis dalam sektor transportasi dan logistik. Pelatihan di bidang ini memberikan keahlian dalam pengoperasian alat berat, manajemen pelabuhan, dan distribusi barang antar pulau atau internasional. Dengan meningkatnya permintaan akan efisiensi logistik, pelatihan ini membuka peluang bagi tenaga kerja yang terampil dalam mendukung pertumbuhan sektor perdagangan global.
+                    </p>
+                    <span class="doc-badge">pelabuhan tanjung priok</span>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="doc-card">
+                <div class="doc-image">
+                    <img src="img/0p0p.png" alt="Pertanian Modern">
+                    <div class="overlay"></div>
+                    <div class="doc-icon">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                </div>
+                <div class="doc-content">
+                    <h4><a href="#">Pelatihan Kerja untuk Tenaga Terampil di Sektor Industri</a></h4>
+                    <p>
+                        Peserta pelatihan yang mengenakan perlengkapan keselamatan kerja ini sedang mempersiapkan diri untuk bekerja di berbagai sektor industri, termasuk konstruksi, manufaktur, dan energi. Program pelatihan ini memastikan para tenaga kerja memperoleh keterampilan praktis dan pemahaman mendalam tentang prosedur keselamatan, yang penting untuk meningkatkan produktivitas dan mengurangi risiko di lingkungan kerja. Pelatihan ini membuka peluang untuk menjadi bagian dari industri yang berkembang pesat dan berkontribusi pada kesuksesan proyek besar.
+                    </p>
+                    <span class="doc-badge">Kerja lapangan</span>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="doc-card">
+                <div class="doc-image">
+                    <img src="img/pabi.png" alt="Logistik Pelabuhan">
+                    <div class="overlay"></div>
+                    <div class="doc-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                </div>
+                <div class="doc-content">
+                    <h4><a href="#">Tim pengajar dan instruktur Profesional untuk Keterampilan Industri</a></h4>
+                    <p>
+                        Tim pengajar profesional ini membimbing peserta pelatihan dengan metode pengajaran yang terstruktur dan berbasis pada pengalaman industri nyata. Pelatihan ini tidak hanya memberikan teori, tetapi juga keterampilan praktis yang langsung dapat diterapkan di lapangan. Dengan pendekatan yang fokus pada kebutuhan industri, peserta diharapkan dapat menguasai keterampilan teknis yang relevan dan siap menghadapi tantangan pekerjaan di sektor industri.
+                    </p>
+                    <span class="doc-badge">Proses Belajar Mengajar</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Scroll Animation -->
+<script>
+    const cards = document.querySelectorAll('.doc-card');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, index * 150);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    cards.forEach(card => observer.observe(card));
+</script>
+
+
+</body>
+</html>
+
+
+
+
+ <!-- ====== CONTACT SECTION PREMIUM ====== -->
+<section id="contact" class="contact-premium py-5" style="background: linear-gradient(135deg, #f8fff8 0%, #f0fdf4 100%);">
+  <div class="container">
+    <div class="row g-5 justify-content-center">
+
+      <!-- ====== LEFT: INFO KONTAK ====== -->
+      <div class="col-lg-5">
+        <div class="contact-info p-5 rounded-4 shadow-lg h-100" style="background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); border: 1px solid rgba(76,175,80,0.15);">
+          
+          <h3 class="fw-bold text-success mb-4">
+            <i class="fas fa-headset me-2"></i> Hubungi Kami
+          </h3>
+          
+          <p class="text-muted mb-4 lead">
+            Tim LPK Mitra Biosekuriti Solusi siap membantu Anda. Konsultasi gratis!
+          </p>
+
+          <!-- Phone -->
+          <div class="d-flex align-items-center mb-4 p-3 rounded-3 hover-card">
+            <div class="icon-circle bg-success text-white me-3">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div>
+              <h6 class="fw-semibold text-dark mb-0">Telepon</h6>
+              <a href="tel:+628129284684" class="text-success text-decoration-none fw-medium">+62 812-9284-684</a>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="d-flex align-items-center mb-4 p-3 rounded-3 hover-card">
+            <div class="icon-circle bg-success text-white me-3">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div>
+              <h6 class="fw-semibold text-dark mb-0">Email</h6>
+              <a href="mailto:mitrabiosekuritisolusi@gmail.com" class="text-success text-decoration-none fw-medium">mitrabiosekuritisolusi@gmail.com</a>
+            </div>
+          </div>
+
+          <!-- Address -->
+          <div class="d-flex align-items-start mb-4 p-3 rounded-3 hover-card">
+            <div class="icon-circle bg-success text-white me-3">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div>
+              <h6 class="fw-semibold text-dark mb-1">Alamat</h6>
+              <p class="text-muted small mb-0">
+                Baranangsiang Indah Blok B.V No.1<br>
+                Kota Bogor, Jawa Barat 16144
+              </p>
+            </div>
+          </div>
+
+          <!-- Jam Operasional -->
+          <div class="alert alert-success small p-3 mt-4 border-0">
+            <i class="fas fa-clock me-2"></i>
+            <strong>Senin–Jumat:</strong> 08.00–17.00 WIB
+          </div>
+        </div>
+      </div>
+
+      <!-- ====== RIGHT: FORM KONTAK ====== -->
+      <div class="col-lg-7">
+        <div class="contact-form p-5 rounded-4 shadow-lg" style="background: white; border: 1px solid rgba(76,175,80,0.2);">
+          
+          <h3 class="fw-bold text-dark mb-4">Kirim Pesan</h3>
+          
+          <form id="contactForm" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="form-group position-relative">
+                  <input type="text" name="name" class="form-control" placeholder="Nama Lengkap" required>
+                  <i class="fas fa-user input-icon"></i>
+                  <div class="invalid-feedback">Nama wajib diisi</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group position-relative">
+                  <input type="email" name="email" class="form-control" placeholder="Email" required>
+                  <i class="fas fa-envelope input-icon"></i>
+                  <div class="invalid-feedback">Email tidak valid</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group position-relative">
+                  <input type="tel" name="phone" class="form-control" placeholder="No. Telepon" required>
+                  <i class="fas fa-phone input-icon"></i>
+                  <div class="invalid-feedback">Nomor telepon wajib diisi</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group position-relative">
+                  <input type="text" name="subject" class="form-control" placeholder="Subjek" required>
+                  <i class="fas fa-tag input-icon"></i>
+                  <div class="invalid-feedback">Subjek wajib diisi</div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group position-relative">
+                  <textarea name="message" class="form-control" rows="5" placeholder="Pesan Anda" required></textarea>
+                  <i class="fas fa-comment-dots input-icon"></i>
+                  <div class="invalid-feedback">Pesan wajib diisi</div>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-success w-100 py-3 rounded-pill fw-semibold shadow-lg">
+                  <i class="fas fa-paper-plane me-2"></i>
+                  Kirim Pesan
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Success Message -->
+          <div id="successMessage" class="alert alert-success mt-3 d-none">
+            <i class="fas fa-check-circle me-2"></i>
+            Pesan berhasil terkirim! Kami akan segera menghubungi Anda.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ====== END CONTACT SECTION ====== -->
+ <style>
+  :root {
+    --primary: #4CAF50;
+    --transition: all 0.3s ease;
+  }
+
+  .contact-premium {
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  /* Icon Circle */
+  .icon-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  /* Hover Card Effect */
+  .hover-card {
+    transition: var(--transition);
+    border: 1px solid transparent;
+  }
+  .hover-card:hover {
+    background: #f0fdf4;
+    border-color: var(--primary);
+    transform: translateY(-3px);
+  }
+
+  /* Form Input Styling */
+  .form-group {
+    position: relative;
+  }
+  .form-control {
+    padding-left: 45px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    transition: var(--transition);
+  }
+  .form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.15);
+  }
+  .input-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 0.9rem;
+    pointer-events: none;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .contact-info, .contact-form {
+      padding: 1.5rem !important;
+    }
+    .icon-circle { width: 42px; height: 42px; }
+  }
+</style>
+
+
+  <!-- ====== MAP SECTION MODERN ====== -->
+<section id="map" class="py-5" style="background: #f8fff8;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+
+        <!-- Judul & Info -->
+        <div class="text-center mb-4">
+          <h3 class="fw-bold text-success mb-2">Kunjungi Kami</h3>
+          <p class="text-muted mb-1">
+            <i class="fas fa-map-marker-alt text-success me-2"></i>
+            <strong>Baranangsiang Indah Blok B.V No.1, Kota Bogor, Jawa Barat 16144</strong>
+          </p>
+        </div>
+
+        <!-- Map Container -->
+        <div class="map-wrapper position-relative rounded-4 overflow-hidden shadow-lg" style="height: 420px; border: 3px solid #4CAF50;">
+          
+          <!-- Google Maps Embed -->
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.684203388309!2d106.797715614768!3d-6.589482995219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c5e8b1a1b1a1%3A0x1a1b1c1d1e1f2021!2sBaranangsiang%20Indah%2C%20Kota%20Bogor!5e0!3m2!1sid!2sid!4v1700000000000" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+
+          <!-- Pin & Label (Overlay) -->
+          <div class="position-absolute top-50 start-50 translate-middle text-center">
+            <div class="bg-white rounded-circle shadow-lg d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; border: 4px solid #4CAF50;">
+              <i class="fas fa-map-pin text-success fs-3"></i>
+            </div>
+            <div class="bg-success text-white px-3 py-1 rounded-pill mt-2 fw-semibold shadow">
+              LPK-MBS
+            </div>
+          </div>
+
+          <!-- Tombol Arah -->
+          <div class="position-absolute bottom-0 start-0 end-0 p-3">
+            <a href="https://maps.google.com/maps?q=Baranangsiang+Indah+Blok+B.V+No.1,+Kota+Bogor" 
+               target="_blank" 
+               class="btn btn-success w-100 rounded-pill shadow-lg fw-semibold">
+              <i class="fas fa-directions me-2"></i>
+              Dapatkan Arah
+            </a>
+          </div>
+        </div>
+
+        <!-- Info Tambahan -->
+        <div class="text-center mt-3">
+          <small class="text-muted">
+            <i class="fas fa-clock text-success me-1"></i>
+            Buka Senin–Jumat: 08.00–17.00 WIB
+          </small>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ====== FOOTER COMPANY PROFILE LPK-MBS ====== -->
+<footer class="footer-cp" style="
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #e2e8f0;
+  font-family: 'Segoe UI', sans-serif;
+  position: relative;
+  overflow: hidden;
+">
+  <!-- Background Pattern -->
+  <div class="footer-bg" style="
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.08) 0%, transparent 50%);
+    z-index: 1;
+  "></div>
+
+  <!-- Footer Top -->
+  <div class="footer-top py-5 position-relative" style="z-index: 3;">
+    <div class="container">
+      <div class="row g-5">
+
+        <!-- Logo & About -->
+        <div class="col-lg-4 col-md-6">
+          <div class="footer-brand text-center text-md-start">
+            <div class="logo-wrapper mb-4">
+              <img src="img/0991.png" 
+                   alt="LPK-MBS Logo" 
+                   class="footer-logo"
+                   style="
+                     width: 110px; height: 110px; border-radius: 50%; object-fit: cover;
+                     border: 3px solid #10b981; box-shadow: 0 0 20px rgba(16,185,129,0.4);
+                     transition: all 0.4s ease;
+                   "
+                   onmouseover="this.style.boxShadow='0 0 30px rgba(16,185,129,0.6)'"
+                   onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 20px rgba(16,185,129,0.4)'">
+            </div>
+            <h5 class="fw-bold text-white mb-2">LPK Mitra Biosekuriti Solusi</h5>
+            <p class="text-gray-400 small mb-3">
+              Lembaga pelatihan kerja resmi bersertifikat <strong>BNSP & Badan Karantina Indonesia</strong>. 
+              Mencetak tenaga ahli fumigasi, karantina tumbuhan, dan logistik pelabuhan siap kerja.
+            </p>
+            <!-- WhatsApp CTA -->
+            <a href="https://wa.me/628129284684?text=Halo%20LPK-MBS%2C%20saya%20tertarik%20dengan%20program%20pelatihan%20Anda" 
+               target="_blank" 
+               class="btn btn-success rounded-pill px-4 py-2 shadow-lg hover-wa d-inline-block"
+               style="font-size: 0.9rem; transition: all 0.3s ease;">
+              <i class="fab fa-whatsapp me-1"></i> Konsultasi via WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- Company Links -->
+<div class="col-lg-2 col-md-6">
+  <div class="footer-widget">
+    <h6 class="text-success fw-bold mb-3">Perusahaan</h6>
+    <ul class="footer-links list-unstyled small">
+      <li class="mb-2"><a href="#about-us" data-scroll class="text-gray-400 hover-success"><i class="fas fa-chevron-right me-2"></i>Tentang Kami</a></li>
+      <li class="mb-2"><a href="#program" data-scroll class="text-gray-400 hover-success"><i class="fas fa-chevron-right me-2"></i>Visi & Misi</a></li>
+      <li class="mb-2"><a href="#struktur" data-scroll class="text-gray-400 hover-success"><i class="fas fa-chevron-right me-2"></i>Struktur Organisasi</a></li>
+      <li class="mb-2"><a href="#sertifikasi" data-scroll class="text-gray-400 hover-success"><i class="fas fa-chevron-right me-2"></i>Sertifikasi & Legalitas</a></li>
+      <li class="mb-2"><a href="#karir" data-scroll class="text-gray-400 hover-success"><i class="fas fa-chevron-right me-2"></i>Karir</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- Layanan Unggulan (Standar Company Profile) -->
+        <div class="col-lg-3 col-md-6">
+          <div class="footer-widget">
+            <h6 class="text-success fw-bold mb-3">Layanan Unggulan</h6>
+            <ul class="footer-links list-unstyled small">
+              <li class="mb-2"><a href="#pelatihan-fumigasi" class="text-gray-400 hover-success"><i class="fas fa-spray-can me-2"></i>Pelatihan Fumigasi ISPM 15</a></li>
+              <li class="mb-2"><a href="#pelatihan-k3" class="text-gray-400 hover-success"><i class="fas fa-hard-hat me-2"></i>Pelatihan K3 Industri</a></li>
+              <li class="mb-2"><a href="#pelatihan-gudang" class="text-gray-400 hover-success"><i class="fas fa-warehouse me-2"></i>Manajemen Gudang Modern</a></li>
+              <li class="mb-2"><a href="#pelatihan-pelabuhan" class="text-gray-400 hover-success"><i class="fas fa-ship me-2"></i>Operasional Pelabuhan</a></li>
+              <li class="mb-2"><a href="#sertifikasi-bnsp" class="text-gray-400 hover-success"><i class="fas fa-certificate me-2"></i>Sertifikasi BNSP</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Kontak & Sosial -->
+        <div class="col-lg-3 col-md-6">
+          <div class="footer-widget">
+            <h6 class="text-success fw-bold mb-3">Hubungi Kami</h6>
+            
+            <div class="contact-item d-flex align-items-start mb-3">
+              <div class="icon-circle bg-success text-white me-3" style="width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.9rem;">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <small class="text-gray-400 d-block">Baranangsiang Indah Blok B.V No.1</small>
+                <small class="text-gray-400">Kota Bogor, Jawa Barat 16144</small>
+              </div>
+            </div>
+
+            <div class="contact-item d-flex align-items-center mb-3" onclick="window.location.href='tel:+628129284684'" style="cursor:pointer;">
+              <div class="icon-circle bg-success text-white me-3" style="width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.9rem;">
+                <i class="fas fa-phone"></i>
+              </div>
+              <a href="tel:+628129284684" class="text-white hover-success" style="text-decoration:none;">+62 812-9284-684</a>
+            </div>
+
+            <div class="contact-item d-flex align-items-center mb-4" onclick="window.location.href='mailto:mitrabiosekuritisolusi@gmail.com'" style="cursor:pointer;">
+              <div class="icon-circle bg-success text-white me-3" style="width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.9rem;">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <a href="mailto:mitrabiosekuritisolusi@gmail.com" class="text-white hover-success" style="text-decoration:none; font-size:0.9rem;">mitrabiosekuritisolusi@gmail.com</a>
+            </div>
+
+            <!-- Social Media Interaktif -->
+            <div class="footer-social d-flex gap-2">
+              <a href="https://facebook.com/lpkmbs" target="_blank" class="social-icon" style="width:38px;height:38px;background:#1e293b;color:#94a3b8;display:flex;align-items:center;justify-content:center;border-radius:50%;font-size:0.9rem;transition:all 0.4s ease;border:1px solid #334155;"
+                 onmouseover="this.style.background='#1877F2';this.style.color='white';this.style.transform='translateY(-5px)';this.style.boxShadow='0 10px 20px rgba(24,119,242,0.3)'"
+                 onmouseout="this.style.background='#1e293b';this.style.color='#94a3b8';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://instagram.com/lpkmbs" target="_blank" class="social-icon" style="width:38px;height:38px;background:#1e293b;color:#94a3b8;display:flex;align-items:center;justify-content:center;border-radius:50%;font-size:0.9rem;transition:all 0.4s ease;border:1px solid #334155;"
+                 onmouseover="this.style.background='#E4405F';this.style.color='white';this.style.transform='translateY(-5px)';this.style.boxShadow='0 10px 20px rgba(228,64,95,0.3)'"
+                 onmouseout="this.style.background='#1e293b';this.style.color='#94a3b8';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://linkedin.com/company/lpkmbs" target="_blank" class="social-icon" style="width:38px;height:38px;background:#1e293b;color:#94a3b8;display:flex;align-items:center;justify-content:center;border-radius:50%;font-size:0.9rem;transition:all 0.4s ease;border:1px solid #334155;"
+                 onmouseover="this.style.background='#0A66C2';this.style.color='white';this.style.transform='translateY(-5px)';this.style.boxShadow='0 10px 20px rgba(10,102,194,0.3)'"
+                 onmouseout="this.style.background='#1e293b';this.style.color='#94a3b8';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="https://youtube.com/@lpkmbs" target="_blank" class="social-icon" style="width:38px;height:38px;background:#1e293b;color:#94a3b8;display:flex;align-items:center;justify-content:center;border-radius:50%;font-size:0.9rem;transition:all 0.4s ease;border:1px solid #334155;"
+                 onmouseover="this.style.background='#FF0000';this.style.color='white';this.style.transform='translateY(-5px)';this.style.boxShadow='0 10px 20px rgba(255,0,0,0.3)'"
+                 onmouseout="this.style.background='#1e293b';this.style.color='#94a3b8';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom py-3 border-top" style="border-top: 1px solid #334155; background: rgba(15,23,42,0.95);">
+    <div class="container">
+      <div class="row align-items-center text-center text-md-start">
+        <div class="col-md-7">
+          <p class="mb-0 text-gray-500 small">
+            © 2025 <strong style="color:#000000;">LPK Mitra Biosekuriti Solusi</strong>. 
+            <span style="color:#94a3b8;">All Rights Reserved.</span>
+          </p>
+        </div>
+        <div class="col-md-5 text-center text-md-end mt-2 mt-md-0">
+          <a href="#privacy" class="text-gray-500 hover-success small me-3" style="text-decoration:none; transition:color 0.3s;">Privacy Policy</a>
+          <a href="#terms" class="text-gray-500 hover-success small" style="text-decoration:none; transition:color 0.3s;">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- ====== END FOOTER ====== -->
+
+<!-- ====== CSS HOVER & UTILITY ====== -->
+<style>
+  .hover-success:hover { color: #10b981 !important; }
+  .hover-wa:hover { 
+    transform: scale(1.05) !important; 
+    box-shadow: 0 8px 25px rgba(16,185,129,0.4) !important; 
+  }
+  .text-gray-400 { color: #94a3b8; }
+  .text-gray-500 { color: #64748b; }
+  .footer-links a { transition: color 0.3s ease; }
+  .footer-links a:hover { color: #10b981 !important; }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" 
+      integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
